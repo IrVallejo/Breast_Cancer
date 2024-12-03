@@ -1,40 +1,52 @@
 import streamlit as st
-import pandas as pd
+import joblib
+import numpy as np
+
+# Cargar el archivo .joblib que contiene el diccionario
+modelo_cargado = joblib.load("Breast_cancer_model_gbc.joblib")
+
+# Extraer el modelo del diccionario
+modelo = modelo_cargado["model"]
 
 # Título de la aplicación
-st.title("Explorador de Datos CSV")
+st.title("Predicción de Cáncer de Mama")
 
-# Ruta del archivo CSV
-file_path = 'data.csv'
+# Ingreso de datos de características del paciente
+st.header("Ingrese las características del paciente:")
 
-# Leer el archivo
-df_raw = pd.read_csv(file_path)
+# Agregar sliders para cada característica utilizando val1, val2, etc.
+val1 = st.slider(
+    "Symmetry Mean", min_value=0.1167, max_value=0.3040, value=0.180198, step=0.001
+)
+val2 = st.slider(
+    "Texture SE", min_value=0.3602, max_value=3.5680, value=1.204210, step=0.01
+)
+val3 = st.slider(
+    "Smoothness SE", min_value=0.002667, max_value=0.03113, value=0.007009, step=0.0001
+)
+val4 = st.slider(
+    "Symmetry SE", min_value=0.007882, max_value=0.07895, value=0.020307, step=0.001
+)
+val5 = st.slider(
+    "Symmetry Worst", min_value=0.1565, max_value=0.6638, value=0.287902, step=0.001
+)
+val6 = st.slider(
+    "PC1", min_value=-870.4226, max_value=3858.68, value=-5.197113e-14, step=1.0
+)
 
-# Eliminar columnas sin título
-df_raw = df_raw.loc[:, ~df_raw.columns.str.contains('^Unnamed')]
+# Botón para hacer la predicción
+if st.button("Predecir"):
+    try:
+        # Crear un array con los datos ingresados (y asegurarse de que sea de tipo float)
+        input_data = np.array([[val1, val2, val3, val4, val5, val6]], dtype=float)
 
-# Mostrar una vista previa
-st.subheader("Vista Previa de los Datos")
-st.write(df_raw.head())
+        # Realizar la predicción con el modelo extraído del diccionario
+        prediccion = modelo.predict(input_data)
 
-# Información del DataFrame procesada como tabla
-st.subheader("Información del DataFrame")
-info_data = {
-    "Column": df_raw.columns,
-    "Non-Null Count": df_raw.notnull().sum(),
-    "Dtype": df_raw.dtypes.astype(str)
-}
-info_df = pd.DataFrame(info_data)
-st.write(info_df)  # Mostrar información como tabla estática
-
-# Estadísticas descriptivas ajustadas
-st.subheader("Estadísticas Descriptivas")
-
-# Transponer las estadísticas descriptivas
-stats_df = df_raw.describe().T
-
-# Mostrar estadísticas descriptivas ajustadas al ancho de la pantalla
-st.write(stats_df.style.set_table_styles([
-    {'selector': 'th', 'props': [('font-size', '12px'), ('text-align', 'center')]},
-    {'selector': 'td', 'props': [('font-size', '12px'), ('text-align', 'center'), ('padding', '5px')]}
-]).set_properties(**{'max-width': '800px', 'overflow': 'hidden'}))
+        # Mostrar el resultado de la predicción
+        if prediccion[0] == 0:
+            st.success("El modelo predice que el tumor es BENIGNO.")
+        else:
+            st.error("El modelo predice que el tumor es MALIGNO.")
+    except Exception as e:
+        st.error(f"Ocurrió un error al realizar la predicción: {e}")
