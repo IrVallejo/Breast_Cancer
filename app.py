@@ -61,6 +61,7 @@ st.markdown(custom_css, unsafe_allow_html=True)
 # Sidebar
 st.sidebar.title("Navegación del Proyecto")
 selection = st.sidebar.radio("Ir a:", [
+    "Portada",
     "Introducción",
     "Análisis Exploratorio",
     "Optimización de Modelos",
@@ -69,8 +70,9 @@ selection = st.sidebar.radio("Ir a:", [
 ])
 
 # Sección: Introducción
-if selection == "Introducción":
+if selection == "Portada":
     st.title("Proyecto Final - Predicción de Cáncer de Mama")
+    st.image("mammograph.jpg", use_container_width=False, width=600, caption="Imagen representativa: Mamografía")
     st.markdown("""
         #### Latam Data Science - Promoción Nro. 3
         #### Predicción de Severidad del Cáncer de Mama
@@ -78,6 +80,17 @@ if selection == "Introducción":
         - **Heber Marin**
         - **Irvin Vallejo**
     """)
+
+if selection == "Introducción":
+    st.header("Introducción")
+    st.markdown("""
+        <div style="background-color: #f7f7f9; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <h3 style="text-align: center; color: #333;">El cáncer de mama es una enfermedad que se origina en las células del tejido mamario, cuando estas comienzan a crecer de manera anormal y descontrolada. Es uno de los principales problemas de salud pública a nivel mundial, siendo la forma de cáncer más común entre las mujeres.</h3>
+            <p style="font-size: 18px; color: #555; text-align: justify;">
+                Según la Organización Mundial de la Salud (OMS), el cáncer de mama representa aproximadamente el 25% de todos los casos de cáncer diagnosticados en mujeres. Esto lo convierte en un desafío global que afecta a millones de personas, no solo por su prevalencia, sino también por su impacto físico, emocional y social.
+            </p>
+        </div>
+    """, unsafe_allow_html=True)
 
 # Sección: Análisis Exploratorio
 elif selection == "Análisis Exploratorio":
@@ -110,9 +123,10 @@ elif selection == "Análisis Exploratorio":
 elif selection == "Optimización de Modelos":
     st.header("Optimización de Modelos")
     st.markdown("""
-        Para mejorar la precisión del modelo, se probaron varios algoritmos de Machine Learning, tales como Gradient Boosting y Random Forest.
-        Además, se aplicó búsqueda de hiperparámetros para encontrar la mejor configuración de cada modelo.
+        En esta sección se presenta un análisis detallado de la optimización realizada sobre los modelos probados.
+        Se incluyó la importancia de las variables para el modelo predictivo.
     """)
+    st.image("Permutation_importance.png", caption="Importancia de las Variables - Permutation Importance", width=600)
 
 # Sección: Modelo Predictivo
 elif selection == "Modelo Predictivo":
@@ -140,7 +154,37 @@ elif selection == "Modelo Predictivo":
 elif selection == "Conclusiones":
     st.header("Conclusiones")
     st.markdown("""
-        Este proyecto demuestra el poder de los modelos de Machine Learning en la predicción temprana del cáncer de mama.
-        Los resultados del modelo predictivo muestran una alta precisión, ayudando a los profesionales médicos en la toma de decisiones.
-        Sin embargo, siempre es importante recalcar que estos modelos deben ser complementados con evaluaciones clínicas tradicionales.
-    """)
+        <div style="background-color: #f7f7f9; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <h3 style="text-align: center; color: #333;">Resultados y Análisis de Modelos</h3>
+            <p style="font-size: 16px; color: #555; text-align: justify;">
+                Tras evaluar tres algoritmos de Machine Learning en la predicción del cáncer de mama (Decision Tree, Random Forest y Gradient Boosting), los resultados destacan lo siguiente:
+            </p>
+            <ul style="font-size: 16px; color: #555; text-align: justify;">
+                <li><strong>Gradient Boosting:</strong> Fue el modelo con el mejor desempeño global:
+                    <ul>
+                        <li>Accuracy: 94.73%, la más alta entre los modelos.</li>
+                        <li>ROC AUC: 0.9484, indicando excelente capacidad de diferenciación entre clases.</li>
+                        <li>Recall: 95.23%, sobresaliente en la identificación de casos positivos.</li>
+                        <li>F1-Score: 93.02%, reflejando un balance ideal entre precisión y sensibilidad.</li>
+                    </ul>
+                    Este modelo es especialmente útil en un contexto clínico donde es crucial minimizar falsos negativos, dado el impacto de no detectar un caso positivo.
+                </li>
+                <li><strong>Random Forest:</strong> También mostró un rendimiento sólido:
+                    <ul>
+                        <li>Accuracy: 93.85%, cercana a la de Gradient Boosting.</li>
+                        <li>ROC AUC: 0.9315, demostrando robustez en la clasificación.</li>
+                        <li>Precision: 92.68%, superior al Gradient Boosting en la predicción correcta de positivos.</li>
+                    </ul>
+                    Si bien su sensibilidad es menor que la de Gradient Boosting, su simplicidad y buen balance lo hacen una alternativa práctica y efectiva.
+                </li>
+                <li><strong>Decision Tree:</strong> Presentó un desempeño adecuado, pero inferior:
+                    <ul>
+                        <li>Accuracy: 90.35%, más baja que los otros modelos.</li>
+                        <li>ROC AUC: 0.8988, reflejando menor capacidad para diferenciar clases.</li>
+                        <li>Precision y Recall: 86.04% y 88.09%, respectivamente, indicando un rendimiento limitado en comparación.</li>
+                    </ul>
+                    Aunque es el modelo más simple, su menor precisión y sensibilidad podrían ser insuficientes en un contexto crítico como el diagnóstico médico.
+                </li>
+            </ul>
+        </div>
+    """, unsafe_allow_html=True)
