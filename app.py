@@ -64,12 +64,12 @@ selection = st.sidebar.radio("Ir a:", [
     "Portada",
     "Introducción",
     "Análisis Exploratorio",
-    "Optimización de Modelos",
+    "Algoritmos",
     "Modelo Predictivo",
     "Conclusiones"
 ])
 
-# Sección: Introducción
+# Sección: Portada
 if selection == "Portada":
     st.title("Proyecto Final - Predicción de Cáncer de Mama")
     st.image("mammograph.jpg", use_container_width=False, width=600, caption="Imagen representativa: Mamografía")
@@ -81,12 +81,13 @@ if selection == "Portada":
         - **Irvin Vallejo**
     """)
 
-if selection == "Introducción":
+# Sección: Introducción
+elif selection == "Introducción":
     st.header("Introducción")
     st.markdown("""
         <div style="background-color: #f7f7f9; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
             <h3 style="text-align: center; color: #333;">El cáncer de mama es una enfermedad que se origina en las células del tejido mamario, cuando estas comienzan a crecer de manera anormal y descontrolada. Es uno de los principales problemas de salud pública a nivel mundial, siendo la forma de cáncer más común entre las mujeres.</h3>
-            <p style="font-size: 18px; color: #555; text-align: justify;">
+            <p style="font-size: 20px; color: #555; text-align: justify;">
                 Según la Organización Mundial de la Salud (OMS), el cáncer de mama representa aproximadamente el 25% de todos los casos de cáncer diagnosticados en mujeres. Esto lo convierte en un desafío global que afecta a millones de personas, no solo por su prevalencia, sino también por su impacto físico, emocional y social.
             </p>
         </div>
@@ -119,14 +120,14 @@ elif selection == "Análisis Exploratorio":
     else:
         st.error("No se pudo cargar el DataFrame para el Análisis Bivariado.")
 
-# Sección: Optimización de Modelos
-elif selection == "Optimización de Modelos":
-    st.header("Optimización de Modelos")
+# Sección: Algoritmos
+elif selection == "Algoritmos":
+    st.header("Algoritmos de Machine Learning")
     st.markdown("""
-        En esta sección se presenta un análisis detallado de la optimización realizada sobre los modelos probados.
-        Se incluyó la importancia de las variables para el modelo predictivo.
+        En esta sección se explican los algoritmos utilizados en el proyecto para la predicción del cáncer de mama.
+        Cada algoritmo tiene sus ventajas y desventajas, y los resultados obtenidos nos permiten seleccionar el mejor modelo.
     """)
-    st.image("Permutation_importance.png", caption="Importancia de las Variables - Permutation Importance", width=600)
+    st.image("Modelo_ML.jpg", caption="Resumen de Algoritmos de Machine Learning", width=800)
 
 # Sección: Modelo Predictivo
 elif selection == "Modelo Predictivo":
@@ -155,11 +156,11 @@ elif selection == "Conclusiones":
     st.header("Conclusiones")
     st.markdown("""
         <div style="background-color: #f7f7f9; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-            <h3 style="text-align: center; color: #333;">Resultados y Análisis de Modelos</h3>
-            <p style="font-size: 16px; color: #555; text-align: justify;">
+            <h3 style="text-align: center; color: #333; font-size: 24px;">Resultados y Análisis de Modelos</h3>
+            <p style="font-size: 22px; color: #555; text-align: justify;">
                 Tras evaluar tres algoritmos de Machine Learning en la predicción del cáncer de mama (Decision Tree, Random Forest y Gradient Boosting), los resultados destacan lo siguiente:
             </p>
-            <ul style="font-size: 16px; color: #555; text-align: justify;">
+            <ul style="font-size: 22px; color: #555; text-align: justify;">
                 <li><strong>Gradient Boosting:</strong> Fue el modelo con el mejor desempeño global:
                     <ul>
                         <li>Accuracy: 94.73%, la más alta entre los modelos.</li>
