@@ -1,4 +1,6 @@
-Introduccion
+Introducción
 El cáncer de mama es una enfermedad que se origina en las células del tejido mamario, cuando estas comienzan a crecer de manera anormal y descontrolada. Es uno de los principales problemas de salud pública a nivel mundial, siendo la forma de cáncer más común entre las mujeres.
 
 Según la Organización Mundial de la Salud (OMS), el cáncer de mama representa aproximadamente el 25% de todos los casos de cáncer diagnosticados en mujeres. Esto lo convierte en un desafío global que afecta a millones de personas, no solo por su prevalencia, sino también por su impacto físico, emocional y social.
+
+En este contexto, el machine learning (aprendizaje automático) ha emergido como una herramienta poderosa para abordar este problema. Esta disciplina de la inteligencia artificial permite a los sistemas analizar grandes volúmenes de datos médicos y aprender patrones que pueden ser útiles para detectar, diagnosticar y predecir la evolución del cáncer de mama. Al combinar el análisis avanzado de datos con la práctica médica, el machine learning tiene el potencial de transformar significativamente los enfoques actuales de prevención y tratamiento, mejorando la precisión diagnóstica y facilitando la toma de decisiones clínicas.
