@@ -63,11 +63,20 @@ st.markdown(custom_css, unsafe_allow_html=True)
 
 # Sidebar
 st.sidebar.title("Navegación del Proyecto")
-selection = st.sidebar.radio("Ir a:", ["Portada", "Introducción", "Análisis Exploratorio", "Algoritmos", "Modelo Predictivo", "Conclusiones"], index=0)
+selection = st.sidebar.radio("Ir a:", [
+    "Portada",
+    "Introducción",
+    "Dataset",
+    "Análisis Exploratorio",
+    "Variables Seleccionadas",
+    "Algoritmos",
+    "Modelo Predictivo",
+    "Conclusiones"
+], index=0)
 
 # Sección: Portada
 if selection == "Portada":
-    st.title("Proyecto Final - Predicción de Cáncer de Mama")
+    st.title("Análisis Comparativo de Algoritmos de Machine Learning en la Predicción del Cáncer de Mama")
     st.image("mammograph.jpg", use_container_width=False, width=800, caption="Imagen representativa: Mamografía")
     st.markdown("""
         #### Latam Data Science - Promoción Nro. 5
@@ -93,6 +102,15 @@ elif selection == "Introducción":
     """, unsafe_allow_html=True)
 
 # Sección: Análisis Exploratorio
+elif selection == "Dataset":
+    st.header("Dataset")
+    st.markdown("""
+        El dataset utilizado en este proyecto contiene diversas características extraídas de imágenes mamográficas,
+        que permiten identificar patrones relacionados con la presencia o ausencia de cáncer de mama. A continuación,
+        se muestra una imagen representativa del análisis del dataset:
+    """)
+    st.image("dataset_mean.jpg", caption="Análisis descriptivo del dataset", width=1000)
+
 elif selection == "Análisis Exploratorio":
     st.header("Análisis Exploratorio de Datos")
 
@@ -119,6 +137,23 @@ elif selection == "Análisis Exploratorio":
     else:
         st.error("No se pudo cargar el DataFrame para el Análisis Bivariado.")
 
+# Sección: Variables Seleccionadas
+elif selection == "Variables Seleccionadas":
+    st.header("Variables Seleccionadas")
+    st.markdown("""
+        En esta sección, se presentan las variables más relevantes seleccionadas para la predicción del cáncer de mama.
+        Estas variables fueron determinadas utilizando técnicas como la importancia de las características por permutación
+        y su relación con el objetivo.
+    """)
+
+    # Mostrar Features vs Target
+    st.subheader("Relación entre las Variables y el Objetivo")
+    st.image("Features_Target.png", caption="Relación entre las características seleccionadas y la variable objetivo", width=800)
+
+    # Mostrar Permutation Importance
+    st.subheader("Importancia de las Variables (Permutation Importance)")
+    st.image("Permutation_importance.png", caption="Importancia de las características mediante Permutation Importance", width=800)
+
 # Sección: Algoritmos
 elif selection == "Algoritmos":
     st.header("Algoritmos de Machine Learning")
@@ -144,16 +179,17 @@ elif selection == "Modelo Predictivo":
     st.markdown("Ingrese las características del paciente:")
 
     # Sliders para ingresar las características del paciente
-    val1 = st.slider("Symmetry Mean", min_value=0.1167, max_value=0.3040, value=0.180198, step=0.001)
-    val2 = st.slider("Texture SE", min_value=0.3602, max_value=3.5680, value=1.204210, step=0.01)
-    val3 = st.slider("Smoothness SE", min_value=0.002667, max_value=0.03113, value=0.007009, step=0.0001)
-    val4 = st.slider("Symmetry SE", min_value=0.007882, max_value=0.07895, value=0.020307, step=0.001)
-    val5 = st.slider("Symmetry Worst", min_value=0.1565, max_value=0.6638, value=0.287902, step=0.001)
-    val6 = st.slider("PC1", min_value=-870.4226, max_value=3858.68, value=-5.197113e-14, step=1.0)
+    simetria_promedio = st.slider("Simetría Promedio", min_value=0.1167, max_value=0.3040, value=0.180198, step=0.001)
+    textura_error_estandar = st.slider("Error Estándar de la Textura", min_value=0.3602, max_value=3.5680, value=1.204210, step=0.01)
+    suavidad_error_estandar = st.slider("Error Estándar de la Suavidad", min_value=0.002667, max_value=0.03113, value=0.007009, step=0.0001)
+    simetria_error_estandar = st.slider("Error Estándar de la Simetría", min_value=0.007882, max_value=0.07895, value=0.020307, step=0.001)
+    simetria_peor = st.slider("Peor Valor de Simetría", min_value=0.1565, max_value=0.6638, value=0.287902, step=0.001)
+    componente_principal_1 = st.slider("Primera Componente Principal", min_value=-870.4226, max_value=3858.68, value=-5.197113e-14, step=1.0)
 
     # Botón para hacer la predicción
     if st.button("Predecir"):
-        input_data = np.array([[val1, val2, val3, val4, val5, val6]])
+        input_data = np.array([[simetria_promedio, textura_error_estandar, suavidad_error_estandar, 
+                                simetria_error_estandar, simetria_peor, componente_principal_1]])
         prediccion = modelo.predict(input_data)
         if prediccion[0] == 0:
             st.success("El modelo predice que el tumor es BENIGNO.")
