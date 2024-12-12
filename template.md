@@ -3,6 +3,7 @@
 ![mammograph](mammograph.jpg)
 
 ## Introduccion 
+<<<<<<< HEAD
 
 El cáncer de mama es una enfermedad que se origina en las células del tejido mamario, cuando estas comienzan a crecer de manera anormal y descontrolada. Es uno de los principales problemas de salud pública a nivel mundial, siendo la forma de cáncer más común entre las mujeres.
 
@@ -14,6 +15,16 @@ En este contexto, el machine learning (aprendizaje automático) ha emergido como
 
 El análisis de datos desempeña un papel fundamental en la lucha contra el cáncer de mama, permitiendo:
 
+=======
+El cáncer de mama es una enfermedad que se origina en las células del tejido mamario, cuando estas comienzan a crecer de manera anormal y descontrolada. Es uno de los principales problemas de salud pública a nivel mundial, siendo la forma de cáncer más común entre las mujeres.
+
+Según la Organización Mundial de la Salud (OMS), el cáncer de mama representa aproximadamente el 25% de todos los casos de cáncer diagnosticados en mujeres. Esto lo convierte en un desafío global que afecta a millones de personas, no solo por su prevalencia, sino también por su impacto físico, emocional y social.
+
+**1.2 Importancia del análisis de datos**
+
+El análisis de datos desempeña un papel fundamental en la lucha contra el cáncer de mama, permitiendo:
+
+>>>>>>> 0108c3179170301e775fa68a61bc303482439ee2
 - Identificar características clave que ayuden en el diagnóstico y tratamiento.
 
 - Optimizar el diagnóstico temprano, un factor crucial para mejorar las tasas de supervivencia.
@@ -131,5 +142,10 @@ El **Gradient Boosting** se posiciona como el modelo más adecuado para este pro
 
 En futuras investigaciones, se podría explorar el uso de datasets más grandes y técnicas avanzadas como Deep Learning para mejorar aún más el rendimiento y la aplicabilidad clínica.
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 0108c3179170301e775fa68a61bc303482439ee2
 ## Referencias
 
