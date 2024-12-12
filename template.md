@@ -132,3 +132,15 @@ En futuras investigaciones, se podría explorar el uso de datasets más grandes 
 
 ## Referencias
 
+Jony, A. I., & Arnob, A. K. B. (2024). Deep learning paradigms for breast cancer diagnosis: A comparative study on Wisconsin diagnostic dataset. Malaysian Journal of Science and Advanced Technology, 4(2), 109–117. https://doi.org/10.56532/mjsat.v4i2.245
+
+
+Nir, G., Peled, N., Kaplan, G., Na'ara, S., & Fisher, E. (1998). Nuclear feature extraction for breast tumor diagnosis. *IEEE Transactions on Biomedical Engineering*, *45*(12), 1464–1469. Recuperado de [https://www.researchgate.net/publication/2512520_Nuclear_Feature_Extraction_For_Breast_Tumor_Diagnosis](https://www.researchgate.net/publication/2512520_Nuclear_Feature_Extraction_For_Breast_Tumor_Diagnosis).
+
+Dua, D., & Graff, C. (2019). Breast Cancer Wisconsin (Diagnostic) Data Set. UCI Machine Learning Repository. Recuperado de https://archive.ics.uci.edu/ml/datasets.
+
+Ahmad, A., Ali, F., & Showrov, M. T. (2020). Comparative performance analysis of machine learning algorithms for breast cancer diagnosis using the WBCD. International Journal of Advanced Computer Science and Applications (IJACSA), 11(2), 200-209. Recuperado de https://www.ijacsa.thesai.org.
+
+
+Hospital CMQ. (n.d.). Mamografía normal, quiste benigno, calcificaciones del seno y cáncer de seno [Imagen]. Recuperado de https://hospitalcmq.com/es/blog/cancer-de-mama-autoexploracion/
+
