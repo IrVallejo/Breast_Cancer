@@ -142,11 +142,6 @@ El **Gradient Boosting** se posiciona como el modelo más adecuado para este pro
 
 En futuras investigaciones, se podría explorar el uso de datasets más grandes y técnicas avanzadas como Deep Learning para mejorar aún más el rendimiento y la aplicabilidad clínica.
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 0108c3179170301e775fa68a61bc303482439ee2
 ## Referencias
 
 Jony, A. I., & Arnob, A. K. B. (2024). Deep learning paradigms for breast cancer diagnosis: A comparative study on Wisconsin diagnostic dataset. Malaysian Journal of Science and Advanced Technology, 4(2), 109–117. https://doi.org/10.56532/mjsat.v4i2.245
